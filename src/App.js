@@ -67,7 +67,8 @@ function Search() {
   )
 }
 
-function List({list}) {
+function List(props) {
+  let list = props.list
   return (
     <ul>
       {list.map(function (item) {
