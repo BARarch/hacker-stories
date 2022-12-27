@@ -1,6 +1,6 @@
 
 import * as React from 'react'
-const list = [
+const listA = [
   {
     title: 'React',
     url: 'https://reactjs.org/',
@@ -19,6 +19,25 @@ const list = [
   },
 ];
 
+const listB = [
+  {
+    title: 'React',
+    url: 'https://reactjs.org/',
+    author: 'GG Bing',
+    num_comments: 3,
+    points: 4,
+    objectID: 0,
+  },
+  {
+    title: 'Redux',
+    url: 'https://redux.js.org/',
+    author: 'lulu Lee, Yasmine Shulks',
+    num_comments: 2,
+    points: 5,
+    objectID: 1,
+  },
+];
+
 function App() {
   return (
     <div>
@@ -28,7 +47,11 @@ function App() {
 
       <hr/>
 
-         <List/>
+         <List
+            list={ listA }/>
+
+         <List
+            list={ listB }/>
 
       </div>
 
@@ -44,7 +67,7 @@ function Search() {
   )
 }
 
-function List() {
+function List({list}) {
   return (
     <ul>
       {list.map(function (item) {
