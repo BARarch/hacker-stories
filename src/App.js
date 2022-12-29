@@ -38,10 +38,9 @@ const listB = [
   },
 ];
 
-function App() {
-  return (
+const App = () => (
     <div>
-      <h1>My Hacker Stories</h1>
+      <h1>MY Hacker Stories</h1>
 
          <Search/>
 
@@ -56,22 +55,18 @@ function App() {
       </div>
 
   )
-}
 
-function Search() {
-  return (
+const Search = () => (
     <div>
       <label htmlFor="search">Search: </label>
       <input id="search" type="text" />
     </div>
   )
-}
 
-function List(props) {
-  let list = props.list
-  return (
+
+const List = (props) => (
     <ul>
-      {list.map(function (item) {
+      {props.list.map(function (item) {
         return(
           <li key={item.objectID}>
             <span>
@@ -85,6 +80,6 @@ function List(props) {
       })}
     </ul>
   )
-}
+
 
 export default App;
