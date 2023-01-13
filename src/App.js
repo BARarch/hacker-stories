@@ -46,22 +46,24 @@ const App = () => (
 
       <hr/>
 
-         <List
-            list={ listA }/>
-
-         <List
-            list={ listB }/>
+         <List list={ listA } />
 
       </div>
 
   )
 
-const Search = () => (
+const Search = () => {
+  const handleChange = (event) => {
+    console.log(event.target.value);
+  };
+
+  return (
     <div>
       <label htmlFor="search">Search: </label>
-      <input id="search" type="text" />
+      <input id="search" type="text" onChange={handleChange} />
     </div>
-  )
+  );
+};
 
 
 const List = (props) => (
