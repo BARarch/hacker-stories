@@ -4,7 +4,7 @@ const listA = [
   {
     title: 'React',
     url: 'https://reactjs.org/',
-    author: 'Anthony Q',
+    author: 'Anthony Que',
     num_comments: 3,
     points: 4,
     objectID: 0,
@@ -70,18 +70,24 @@ const List = (props) => (
     <ul>
       {props.list.map(function (item) {
         return(
-          <li key={item.objectID}>
-            <span>
-              <a href={item.url}>item.title</a>
-            </span>
-            <span>{item.author}</span>
-            <span>{item.num_comments}</span>
-            <span>{item.points}</span>
-          </li>
+          <Item key={item.objectID} item={item} />
         );
       })}
     </ul>
-  )
+  );
+
+const Item = ({ item }) => (
+  <li key={item.objectID}>
+    <span>
+      <a href={item.url}>item.title</a>
+    </span>
+    <span>{item.author}</span>
+    <span>{item.num_comments}</span>
+    <span>{item.points}</span>
+</li>
+)
+
+
 
 
 export default App;
