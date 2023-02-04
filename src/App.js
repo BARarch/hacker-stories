@@ -6,7 +6,7 @@ const listA = [
     url: 'https://reactjs.org/',
     author: 'Anthony Que',
     num_comments: 3,
-    points: 4,
+    points: 6,
     objectID: 0,
   },
   {
@@ -66,13 +66,9 @@ const Search = () => {
 };
 
 
-const List = (props) => (
+const List = ({ list }) => (
     <ul>
-      {props.list.map(function (item) {
-        return(
-          <Item key={item.objectID} item={item} />
-        );
-      })}
+      {list.map((item) => <Item key={item.objectID} item={item} />)}
     </ul>
   );
 
@@ -84,8 +80,8 @@ const Item = ({ item }) => (
     <span>{item.author}</span>
     <span>{item.num_comments}</span>
     <span>{item.points}</span>
-</li>
-)
+  </li>
+  );
 
 
 
