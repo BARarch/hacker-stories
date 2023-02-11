@@ -38,7 +38,10 @@ const listB = [
   },
 ];
 
-const App = () => (
+const App = () => {
+  console.log('App Render');
+
+  return (
     <div>
       <h1>MY Hacker Stories</h1>
 
@@ -50,38 +53,54 @@ const App = () => (
 
       </div>
 
-  )
+  );
+};
 
 const Search = () => {
+  console.log('Search Render');
+  const [searchTerm, setSearchTerm] = React.useState('');
+
   const handleChange = (event) => {
-    console.log(event.target.value);
+    setSearchTerm(event.target.value);
   };
 
   return (
     <div>
       <label htmlFor="search">Search: </label>
       <input id="search" type="text" onChange={handleChange} />
+
+      <p>
+        Searching for <strong>{searchTerm}</strong>.
+      </p>
     </div>
   );
 };
 
 
-const List = ({ list }) => (
+const List = ({ list }) => {
+  console.log('List Render');
+
+  return (
     <ul>
       {list.map((item) => <Item key={item.objectID} item={item} />)}
     </ul>
   );
+};
 
-const Item = ({ item }) => (
-  <li key={item.objectID}>
-    <span>
-      <a href={item.url}>item.title</a>
-    </span>
-    <span>{item.author}</span>
-    <span>{item.num_comments}</span>
-    <span>{item.points}</span>
-  </li>
+const Item = ({ item }) => {
+  console.log('Item Render')
+  
+  return (
+    <li key={item.objectID}>
+      <span>
+        <a href={item.url}>item.title</a>
+      </span>
+      <span>{item.author}</span>
+      <span>{item.num_comments}</span>
+      <span>{item.points}</span>
+    </li>
   );
+};
 
 
 
